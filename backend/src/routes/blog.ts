@@ -8,7 +8,7 @@ export const blogRouter = new Hono<{
     Bindings: {
         DATABASE_URL: string;
         JWT_SECRET: string;
-    }, 
+    },
     Variables: {
         userId: string;
     }
@@ -23,11 +23,11 @@ blogRouter.use("/*", async (c, next) => {
             await next();
         } else {
             c.status(403);
-            return c.json({
+            return c.json({  
                 message: "You are not logged in"
             })
         }
-    } catch(e) {
+    } catch (e) {
         c.status(403);
         return c.json({
             message: "You are not logged in"
@@ -47,7 +47,7 @@ blogRouter.post('/', async (c) => {
 
     const authorId = c.get("userId");
     const prisma = new PrismaClient({
-      datasourceUrl: c.env.DATABASE_URL,
+        datasourceUrl: c.env.DATABASE_URL,
     }).$extends(withAccelerate())
 
     const blog = await prisma.blog.create({
@@ -74,13 +74,13 @@ blogRouter.put('/', async (c) => {
     }
 
     const prisma = new PrismaClient({
-      datasourceUrl: c.env.DATABASE_URL,
+        datasourceUrl: c.env.DATABASE_URL,
     }).$extends(withAccelerate())
 
     const blog = await prisma.blog.update({
         where: {
             id: body.id
-        }, 
+        },
         data: {
             title: body.title,
             content: body.content
@@ -118,7 +118,7 @@ blogRouter.get('/bulk', async (c) => {
 blogRouter.get('/:id', async (c) => {
     const id = c.req.param("id");
     const prisma = new PrismaClient({
-      datasourceUrl: c.env.DATABASE_URL,
+        datasourceUrl: c.env.DATABASE_URL,
     }).$extends(withAccelerate())
 
     try {
@@ -137,11 +137,11 @@ blogRouter.get('/:id', async (c) => {
                 }
             }
         })
-    
+
         return c.json({
             blog
         });
-    } catch(e) {
+    } catch (e) {
         c.status(411); // 4
         return c.json({
             message: "Error while fetching blog post"

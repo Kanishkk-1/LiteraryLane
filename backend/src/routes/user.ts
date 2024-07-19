@@ -9,7 +9,7 @@ export const userRouter = new Hono<{
         DATABASE_URL: string;
         JWT_SECRET: string;
     }
-}>();
+}>();       
 
 userRouter.post('/signup', async (c) => {
     const body = await c.req.json();
