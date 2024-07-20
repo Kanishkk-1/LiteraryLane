@@ -22,6 +22,8 @@ export function Home() {
             //@ts-ignore
             const divStart = divRef.current.offsetTop;
             //@ts-ignore
+            
+            
             const divEnd = divStart + divRef.current.offsetHeight;
 
             const handleScroll = () => {
