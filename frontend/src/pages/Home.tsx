@@ -25,6 +25,7 @@ export function Home() {
             const divEnd = divStart + divRef.current.offsetHeight;
 
             const handleScroll = () => {
+                // kndw
                 const currentScrollPos = window.pageYOffset;
                 if (currentScrollPos < divStart) {
                     setOpacity(1);
