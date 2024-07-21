@@ -88,6 +88,7 @@ export function Home() {
                             unique thread.
                         </p>
                     </div>
+                    {/* console.log('User from Recoil:', user); */}
                     {!user.id ? (
                         <div className="flex mt-[50px] gap-[10px] items-center">
                             <p className=" text-gray-600  md:text-[20px]">Sign up to Start writing</p>

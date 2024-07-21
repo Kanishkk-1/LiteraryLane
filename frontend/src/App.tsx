@@ -2,7 +2,7 @@ import { Routes,Route } from "react-router-dom"
 import { Signup } from "./pages/Signup"
 import { Signin } from "./pages/Signin"
 import { Blog } from "./pages/Blog"
-// import { Navbar } from "./components/Navbar"
+import { Navbar } from "../src/components/Navbar"
 import { Home } from "./pages/Home"
 import { Blogs } from "./pages/Blogs"
 // import { CreateBlog } from "./pages/CreateBlog"
@@ -25,7 +25,7 @@ useEffect(()=>{
 },[])
   return (
     <div className="font-roboto">
-      {/* <Navbar/> */}
+      <Navbar/> 
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/signup" element={<Signup/>}/>
