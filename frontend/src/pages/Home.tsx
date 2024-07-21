@@ -13,6 +13,7 @@ export function Home() {
     const divRef = useRef(null);
     const location = useLocation();
     const navigate = useNavigate();
+    //fef
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(false);
     const [opacity, setOpacity] = useState(1);
