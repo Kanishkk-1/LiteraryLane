@@ -45,28 +45,28 @@ export const Auth = ({ type, onSignInSuccess }: AuthProps) => {
       const jwt = response.data;
   
       // Check if JWT is valid and properly stored
-    //   console.log('JWT received:', jwt);
+      //   console.log('JWT received:', jwt);
       localStorage.setItem("token", jwt);
   
-     
-      setAuth({ isLoggedIn: true, user: { } });
+      if (type === "signin") {
+        // Update auth state only on sign-in
+        setAuth({ isLoggedIn: true, user: {} });
   
-      if (type === "signup") {
-        
-        navigate("/signin");
-      } else {
         navigate("/blogs");
   
         if (onSignInSuccess) {
           onSignInSuccess();
         }
+      } else {
+        // Redirect after sign-up
+        navigate("/signin");
       }
     } catch (e) {
       console.error('Error during sign-in/sign-up:', e);
       setError("Error while signing up/signing in");
-     
     }
   };
+  
   
 
   return (
