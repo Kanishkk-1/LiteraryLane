@@ -4,11 +4,11 @@ import { SignupInput } from "@kanishkk-1/literarylane2.0";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { useRecoilState } from "recoil";
-import { authState } from '../State/userAtom'; // Adjust import path as needed
+import { authState } from '../State/userAtom'; 
 
 interface AuthProps {
   type: "signup" | "signin";
-  onSignInSuccess?: () => void; // Optional callback for successful sign-in
+  onSignInSuccess?: () => void;
 }
 
 export const Auth = ({ type, onSignInSuccess }: AuthProps) => {
@@ -44,12 +44,9 @@ export const Auth = ({ type, onSignInSuccess }: AuthProps) => {
       const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`, postInputs);
       const jwt = response.data;
   
-      // Check if JWT is valid and properly stored
-      //   console.log('JWT received:', jwt);
       localStorage.setItem("token", jwt);
   
       if (type === "signin") {
-        // Update auth state only on sign-in
         setAuth({ isLoggedIn: true, user: {} });
   
         navigate("/blogs");
@@ -58,7 +55,6 @@ export const Auth = ({ type, onSignInSuccess }: AuthProps) => {
           onSignInSuccess();
         }
       } else {
-        // Redirect after sign-up
         navigate("/signin");
       }
     } catch (e) {

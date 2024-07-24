@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { authState } from '../State/userAtom'; // Make sure the import path is correct
+import { authState } from '../State/userAtom'; 
 
 export const Appbar = () => {
   const [auth, setAuth] = useRecoilState(authState);
