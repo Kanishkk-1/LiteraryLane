@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AuthProvider } from '../src/Components/Authcontext';  // Ensure this path is correct
+import { AuthProvider } from '../src/Components/Authcontext'; 
 import { Signup } from './pages/Signup';
 import { Signin } from './pages/Signin';
 import { Blog } from './pages/Blog';
 import { Home } from './pages/Home';
 import { Blogs } from "./pages/Blogs";
 import { Publish } from './pages/Publish';
-import Appbar from "../src/Components/Appbar";  // Or Navbar if using that instead
+import Appbar from "../src/Components/Appbar"; 
 
 function App() {
   return (

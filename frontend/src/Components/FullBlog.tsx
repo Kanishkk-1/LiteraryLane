@@ -1,11 +1,10 @@
 import { Blog } from "../hooks";
-// import { Appbar } from "./Appbar";
 import { Avatar } from "./BlogCard";
 
 export const FullBlog = ({ blog }: { blog: Blog }) => {
   return (
     <div>
-      {/* <Appbar /> */}
+     
       <div className="flex justify-center">
         <div className="grid grid-cols-12 px-10 w-full pt-200 max-w-screen-xl pt-12">
           <div className="col-span-8">
@@ -16,7 +15,6 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
               Posted on 2nd December 2022
             </div>
             <div className="pt-4">
-              {/* Render HTML content safely */}
               <div
                 dangerouslySetInnerHTML={{ __html: blog.content }}
                 className="prose" 
@@ -47,12 +45,11 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
   );
 }
 
-// Helper function to format the date
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
-  });
-};
+// const formatDate = (dateString: string) => {
+//   const date = new Date(dateString);
+//   return date.toLocaleDateString('en-US', { 
+//     year: 'numeric', 
+//     month: 'long', 
+//     day: 'numeric' 
+//   });
+// };

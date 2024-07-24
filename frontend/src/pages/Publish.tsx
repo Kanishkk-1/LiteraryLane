@@ -2,7 +2,7 @@
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { useNavigate } from "react-router-dom";
-import { ChangeEvent, useState } from "react";
+import {  useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Import the styles
 
@@ -62,7 +62,6 @@ export const Publish = () => {
     );
 };
 
-// Quill Editor Modules
 const editorModules = {
     toolbar: [
         [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
@@ -71,6 +70,6 @@ const editorModules = {
         [{ 'color': [] }, { 'background': [] }],
         [{ 'align': [] }],
        
-        ['clean'] // remove formatting button
+        ['clean'] 
     ],
 };

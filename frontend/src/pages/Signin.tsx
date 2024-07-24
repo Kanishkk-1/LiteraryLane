@@ -1,11 +1,11 @@
-import { useRecoilState } from 'recoil';
+// import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
-import { authState } from '../State/userAtom'; // Adjust import path as needed
+// import { authState } from '../State/userAtom'; // Adjust import path as needed
 import { Auth } from '../Components/Auth';
 import { Quote } from '../Components/Quote';
 
 export const Signin = () => {
-  const [auth, setAuth] = useRecoilState(authState);
+//   const [auth, setAuth] = useRecoilState(authState);
   const navigate = useNavigate();
 
   const handleSignInSuccess = () => {

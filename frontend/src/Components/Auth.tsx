@@ -19,7 +19,7 @@ export const Auth = ({ type, onSignInSuccess }: AuthProps) => {
     password: ""
   });
   const [error, setError] = useState<string | null>(null);
-  const [auth, setAuth] = useRecoilState(authState); // Use Recoil state
+  const [, setAuth] = useRecoilState(authState); 
 
   const validateInputs = () => {
     if (type === "signup" && !postInputs.name) {
@@ -45,20 +45,18 @@ export const Auth = ({ type, onSignInSuccess }: AuthProps) => {
       const jwt = response.data;
   
       // Check if JWT is valid and properly stored
-      console.log('JWT received:', jwt);
+    //   console.log('JWT received:', jwt);
       localStorage.setItem("token", jwt);
   
-      // Update Recoil state
+     
       setAuth({ isLoggedIn: true, user: { } });
   
       if (type === "signup") {
-        // Redirect to sign-in page after successful sign-up
+        
         navigate("/signin");
       } else {
-        // Redirect to blogs page after successful sign-in
         navigate("/blogs");
   
-        // Call the success callback if provided
         if (onSignInSuccess) {
           onSignInSuccess();
         }
@@ -66,7 +64,7 @@ export const Auth = ({ type, onSignInSuccess }: AuthProps) => {
     } catch (e) {
       console.error('Error during sign-in/sign-up:', e);
       setError("Error while signing up/signing in");
-      // You can also handle specific error cases here
+     
     }
   };
   
