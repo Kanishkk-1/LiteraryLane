@@ -1,5 +1,5 @@
-import { Auth } from "../components/Auth"
-import { Quote } from "../components/Quote"
+import { Auth } from "../Components/Auth"
+import { Quote } from "../Components/Quote"
 
 export const Signup = () => {
     return <div>

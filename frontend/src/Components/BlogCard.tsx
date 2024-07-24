@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
-
-
-export interface BlogCardProps {
+interface BlogCardProps {
     authorName: string;
     title: string;
     content: string;
     publishedDate: string;
     id: number;
-    imagelink?: string;
-    
 }
 
 export const BlogCard = ({
@@ -34,7 +30,12 @@ export const BlogCard = ({
                 {title}
             </div>
             <div className="text-md font-thin">
-                {content.slice(0, 100) + "..."}
+            <div
+                dangerouslySetInnerHTML={{ __html: content.slice(0, 500) + "..." }}
+                className="prose" 
+              />
+              {/* {content.slice(0, 100) + "..."} */}
+                
             </div>
             <div className="text-slate-500 text-sm font-thin pt-4">
                 {`${Math.ceil(content.length / 100)} minute(s) read`}
